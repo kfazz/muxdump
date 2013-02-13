@@ -79,23 +79,57 @@ static int __init muxdump_init(void) {
 				printk("| OMAP343X_PADCONF_PUD_ENABLED");
 			if (val & OMAP343X_PADCONF_PUD_DISABLED)
 				printk("| OMAP343X_PADCONF_PUD_DISABLED");
-			if (val & OMAP343X_PADCONF_MUXMODE0)
-				printk("| OMAP343X_PADCONF_MUXMODE0");
-			if (val & OMAP343X_PADCONF_MUXMODE1)
-				printk("| OMAP343X_PADCONF_MUXMODE1");
-			if (val & OMAP343X_PADCONF_MUXMODE2)
-				printk("| OMAP343X_PADCONF_MUXMODE2");
-			if (val & OMAP343X_PADCONF_MUXMODE3)
-				printk("| OMAP343X_PADCONF_MUXMODE3");
-			if (val & OMAP343X_PADCONF_MUXMODE4)
-				printk("| OMAP343X_PADCONF_MUXMODE4");
-			if (val & OMAP343X_PADCONF_MUXMODE5)
-				printk("| OMAP343X_PADCONF_MUXMODE5");
-			if (val & OMAP343X_PADCONF_MUXMODE6)
-				printk("| OMAP343X_PADCONF_MUXMODE6");
-			if (val & OMAP343X_PADCONF_MUXMODE7)
-				printk("| OMAP343X_PADCONF_MUXMODE7");
-			printk("\n");
+			if (val & 4)
+			{
+				if (val & 2)
+				{
+					if (val & 1)
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE7");
+					}
+					else
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE6");
+					}
+				}
+				else
+				{
+					if (val & 1)
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE5");
+					}
+					else
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE4");
+					}
+				}
+			}
+
+			else
+			{
+				if (val & 2)
+				{
+					if (val & 1)
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE3");
+					}
+					else
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE2");
+					}
+				}
+				else
+				{
+					if (val & 1)
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE1");
+					}
+					else
+					{
+					printk("| OMAP343X_PADCONF_MUXMODE0");
+					}
+				}
+			}
 		}
 	}
 	return 0;
